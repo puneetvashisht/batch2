@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>AngularApp</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="AppCtrl">
+         <button ng-click="loadData()">Load
+          Data</button>
+          <input type=text placeholder="Search by Name" ng-model="search.name"/>
+        <table>
+            <tr ng-repeat="user in users | filter:search">
+                <td>{{$index+1}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.role}}</td>
+            </tr>
+        </table>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<script>
+    var app = angular.module('myApp', [])
+    app.controller('AppCtrl', function($scope,$http){
+        $scope.test = "test Value"
+        
+        $scope.loadData = function(){
+            $http({
+                url: '/users',
+                method: 'GET'
+            }).success(function(data){
+                console.log(data);
+                $scope.users = data;
+            })
+        }
+    })
+</script>
+
+</body>
+</html>
