@@ -10,8 +10,11 @@ import {ChildComponent} from "./child.component"
     <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
             </select>
     
-    {{c.value}}
-            <my-child country="{{c.value}}"></my-child>
+    City selected is: {{output}}
+<my-child country="{{c.value}}" (cityChanged)="captureEvent($event)"></my-child>
+
+<br>
+    
             
         </div>
     `,
@@ -19,5 +22,21 @@ import {ChildComponent} from "./child.component"
         
 })
 export class AppComponent{
+ output: string; 
+    captureEvent(event){
+       this.output =  event
+        console.log('In capture event' + event);
+    }
 countries: Array<string> = ['India', 'US']
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 @Component({
         selector: 'my-child',
         template: `
@@ -6,12 +6,22 @@ import {Component, Input} from "@angular/core";
             <h2>Child Component</h2>
     <p>Country is : {{country}}</p>
     <br>
-    <p>{{cities}}</p>
-    
+   
+<select #c (change)="handleChange(c.value)">
+    <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+            </select>
+    {{c.value}}
         `
         
         })
 export class ChildComponent{
+    
+    @Output('cityChanged') cityChanged: EventEmitter = new EventEmitter() ;
+    
+handleChange(city){
+    console.log(city)
+    this.cityChanged.emit(city);
+}    
 
 ngOnChanges(){
     console.log("Property changed" + this.country)
