@@ -4,7 +4,7 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
         template: `
             <hr>
             <h2>Child Component</h2>
-    <p>Country is : {{country}}</p>
+    <p>Country is : <input type="text" #t2 (blur)="handleClick(t2.value)" value={{country}}/></p>
     <br>
    
 <select #c (change)="handleChange(c.value)">
@@ -17,11 +17,17 @@ import {Component, Input, Output, EventEmitter} from "@angular/core";
 export class ChildComponent{
     
     @Output('cityChanged') cityChanged: EventEmitter = new EventEmitter() ;
+    @Output('countryChanged') countryChanged: EventEmitter = new EventEmitter() ;
     
 handleChange(city){
     console.log(city)
     this.cityChanged.emit(city);
-}    
+}  
+    
+    handleClick(country){
+    console.log(country)
+    this.countryChanged.emit(country);
+} 
 
 ngOnChanges(){
     console.log("Property changed" + this.country)
