@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
+  selector: 'my-child',
   encapsulation: ViewEncapsulation.Native,
   styles: [`
   	div{
@@ -15,13 +15,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
   `],
   template: `
     <div>
-		<h2>App Component</h2>
-        <my-child></my-child>
-		<home></home>
+		<h2>Child Component</h2>
     </div>
   `
 })
-export class AppComponent { 
+export class ChildComponent { 
 	constructor(){
 		console.log('In app component');
 	}

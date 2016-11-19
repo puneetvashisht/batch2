@@ -1,9 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { MyService } from './../services/my.service';
+
 
 @Component({
-    selector: 'home',
-	encapsulation: ViewEncapsulation.Native,
+    selector: 'my-app',
 	styles: [`
   	div{
 		color: white;
@@ -14,12 +13,16 @@ import { MyService } from './../services/my.service';
 		margin: 15px;
 	}
   `],
-    template: `<h2>Home Component !</h2>
-               <h3>My Service Id = {{myService.id}}</h3>`
+    template: `<h2>Parent Component !</h2>
+    <hr>
+    <display></display>
+    <edit></edit>
+              
+    `
 })
-export class Home {
+export class HomeComponent {
 
-    constructor(private myService: MyService) {
+    constructor() {
 
     }
 
