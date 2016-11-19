@@ -3,8 +3,13 @@ import { MyService } from './../services/my.service';
 
 @Component({
     selector: 'display',
-    template: `<h2>Display Component !</h2>
-<input type="text" [(ngModel)]="myService.id"/>
+    template: `<h4>Display Component !</h4>
+<table>
+    <tr *ngFor="let employee of myService.employees">
+    <td>{{employee.name}}</td>
+    <td>{{employee.role}}</td>
+    </tr>
+</table>
               
     `
 })

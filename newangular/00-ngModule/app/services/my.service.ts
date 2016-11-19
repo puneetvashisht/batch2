@@ -1,15 +1,24 @@
 import {Injectable} from '@angular/core';
 
+export class Employee{
+constructor(public name:string, public role:string){
+    
+}
+}
+
 @Injectable()
 export class MyService {
 
-    static counter = 0;
+employees: Array<Employee> = [];
 
     id = 0;
 
     constructor() {
-        this.id = MyService.counter++;
-        console.log(`instantiated my service with id ${this.id}`);
+    let emp1:Employee = new Employee('Ravi', 'IT Manager')
+    let emp2:Employee = new Employee('Jasmine', 'Admin')
+    this.employees.push(emp1)
+    this.employees.push(emp2)
+        
     }
 	
 	
