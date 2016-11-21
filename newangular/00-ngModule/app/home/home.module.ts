@@ -4,6 +4,8 @@ import { HomeComponent } from "./home.component";
 import { DisplayComponent } from "./display.component";
 import { EditComponent } from "./edit.component";
 import { MyService } from './../services/my.service';
+import { ReversePipe } from './../pipes/reverse.pipe';
+import { FilterPipe } from './../pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
       FormsModule  
   ],
-  declarations: [HomeComponent, DisplayComponent,EditComponent],
+    declarations: [HomeComponent, DisplayComponent,EditComponent, ReversePipe, FilterPipe],
   bootstrap: [ HomeComponent ],
    providers: [MyService]
 
