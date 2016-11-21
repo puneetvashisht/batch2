@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MyService, Employee } from './../services/my.service';
+import { LogService } from './../services/log.service';
 
 @Component({
     selector: 'edit',
@@ -15,11 +16,11 @@ export class EditComponent {
     employee: Employee = new Employee('','');
     
     addEmployee(){
-        console.log(this.employee)
+        this.logService.log(this.employee)
         this.myService.employees.push(this.employee)
     }
     
-    constructor(private myService: MyService) {
+    constructor(private myService: MyService, private logService: LogService) {
 
     }
 
