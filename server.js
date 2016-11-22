@@ -1,10 +1,27 @@
 var express = require('express')
+var bodyParser = require('body-parser')
+var cors = require('cors')
+
 var app = express()
 
-app.use(express.static('webcontent'))
+app.use(cors())
 
+app.use(express.static('webcontent'))
+app.use(bodyParser.json());
 app.get('/', function (req, res) {
   res.send('Hello World!')
+})
+
+var employees = [];
+
+app.post('/emps', function(req, res){
+    console.log(req.body);
+    employees.push(req.body);
+    res.json({success:true});
+})
+
+app.get('/emps', function(req, res){
+    res.json(employees);
 })
 
 app.get('/users', function(req,res){
@@ -15,6 +32,6 @@ app.get('/users', function(req,res){
     
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(8000, function () {
+  console.log('Example app listening on port 8000!')
 })

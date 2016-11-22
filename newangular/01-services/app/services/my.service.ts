@@ -16,7 +16,7 @@ employees: Array<Employee> = [];
 
     id = 0;
 fetchEmployees(){
-    this.http.get('http://localhost:8000/emps')
+    this.http.get('/employees.json')
         .map(this.extractData)
         .subscribe(data => {
         console.log(data);
