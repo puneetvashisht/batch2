@@ -20,9 +20,18 @@ app.post('/emps', function(req, res){
     res.json({success:true});
 })
 
-app.get('/emps', function(req, res){
-    res.json(employees);
-})
+
+app.post('/authenticate', function(req, res){
+    console.log(req.body);
+    if(req.body.email == req.body.pwd){
+        res.json({sucess:true});
+
+    }
+    else{
+        res.json({success:false})
+    }
+    
+})    
 
 app.get('/users', function(req,res){
     var users = [{name:'Ravi', role:'SE'},

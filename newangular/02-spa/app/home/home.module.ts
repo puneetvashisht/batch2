@@ -3,11 +3,13 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { HomeComponent } from "./home.component";
 import { DisplayComponent } from "./display.component";
 import { EditComponent } from "./edit.component";
+import { LoginComponent } from "./login.component";
+import { WelcomeComponent } from "./welcome.component";
 import { MyService } from './../services/my.service';
 import { LogService } from './../services/log.service';
 import { ReversePipe } from './../pipes/reverse.pipe';
 import { FilterPipe } from './../pipes/filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from "./home.routing";
 
@@ -16,12 +18,12 @@ import { routing } from "./home.routing";
     imports: [
     //provides Browser specific renderers, and installs core directives like ngIf, ngFor, etc
     BrowserModule,
-      FormsModule ,
      HttpModule,
-      routing
+      routing,
+    FormsModule, ReactiveFormsModule    
   ],
     
-    declarations: [HomeComponent, DisplayComponent,EditComponent, ReversePipe, FilterPipe],
+    declarations: [HomeComponent, DisplayComponent,EditComponent, LoginComponent, WelcomeComponent, ReversePipe, FilterPipe],
   bootstrap: [ HomeComponent ],
 providers: [MyService,LogService]
 
