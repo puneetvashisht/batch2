@@ -4,7 +4,7 @@ var tsc = require("gulp-typescript");
 var sourcemaps = require('gulp-sourcemaps');
 var tsProject = tsc.createProject("tsconfig.json");
 var tslint = require('gulp-tslint');
-var appDev = '00-ngModule';
+var appDev = '02-spa';
 /**
  * Remove build directory.
  */
